@@ -31,7 +31,7 @@ export default {
     return {
       // 登录表单的数据绑定
       loginForm: {
-        username: 'zhangsan',
+        username: 'admin',
         password: '123456'
       },
       // 表单的验证规则对象

@@ -6,3 +6,11 @@ body,
     margin: 0;
     padding: 0;
 }
+/* 面包屑导航 */
+.el-breadcrumb {
+    margin-bottom: 15px;
+}
+/* 完整分页 */
+.el-pagination {
+    margin-top: 20px;
+}
