@@ -27,11 +27,10 @@ import {
   Tooltip,
   Select,
   Option,
-  Tree
+  Tree,
+  Cascader
 } from 'element-ui'
-// import TableTree from 'vue-table-with-tree-grid'
 
-// Vue.component(ZkTable.name, TableTree)
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
@@ -58,5 +57,6 @@ Vue.use(Tooltip)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(Tree)
+Vue.use(Cascader)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
