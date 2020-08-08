@@ -7,6 +7,12 @@ import './assets/css/global.css'
 // 引入字体图标
 import './assets/fonts/iconfont.css'
 import TableTree from 'vue-table-with-tree-grid'
+// 导入富文本编辑器
+import VueQuillEditor from 'vue-quill-editor'
+// 富文本编辑器所需的样式
+import 'quill/dist/quill.core.css' // import styles
+import 'quill/dist/quill.snow.css' // for snow theme
+import 'quill/dist/quill.bubble.css' // for bubble theme
 
 import axios from 'axios'
 
@@ -21,8 +27,22 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$http = axios
 
 Vue.component('tree-table', TableTree)
+// 全局使用富文本编辑器
+Vue.use(VueQuillEditor /* { default global options } */)
 
 Vue.config.productionTip = false
+
+Vue.filter('dataFormat', function (originFormat) {
+  const dt = new Date(originFormat)
+  const y = dt.getFullYear()
+  const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+  const d = (dt.getDate() + '').padStart(2, '0')
+  const hh = (dt.getHours() + '').padStart(2, '0')
+  const mm = (dt.getMinutes() + '').padStart(2, '0')
+  const ss = (dt.getSeconds() + '').padStart(2, '0')
+
+  return y + '-' + m + '-' + d + ' ' + hh + ':' + mm + ':' + ss
+})
 
 new Vue({
   router,
