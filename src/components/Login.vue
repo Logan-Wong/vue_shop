@@ -3,7 +3,7 @@
         <div class="login_box">
             <!-- 头像区域 -->
             <div class="avator_box">
-                <img src="../assets/logo.png" alt="">
+                <img src="../assets/非社交型头像.png" alt="">
             </div>
             <!-- 登陆表单区域 -->
             <el-form ref="loginFormRef" label-width="0px" class="login_form" :model="loginForm" :rules="loginRules">
@@ -13,7 +13,7 @@
                 </el-form-item>
                 <!-- 密码 -->
                 <el-form-item prop="password">
-                    <el-input type="password" prefix-icon="iconfont icon-3702mima" v-model="loginForm.password"></el-input>
+                    <el-input type="password" ref="loginFormPwdRef" prefix-icon="iconfont icon-3702mima" v-model="loginForm.password" @keyup.enter.native="login"></el-input>
                 </el-form-item>
                 <!-- 按钮 -->
                 <el-form-item class="btns">
@@ -22,6 +22,7 @@
                 </el-form-item>
             </el-form>
         </div>
+        <!-- <input type="text" v-focus> -->
     </div>
 </template>
 
@@ -32,7 +33,7 @@ export default {
       // 登录表单的数据绑定
       loginForm: {
         username: 'admin',
-        password: '123456'
+        password: ''
       },
       // 表单的验证规则对象
       loginRules: {
@@ -70,6 +71,17 @@ export default {
         this.$router.push('/home')
       })
     }
+  },
+  // directives: {
+  //   focus: {
+  //     // 指令的定义
+  //     inserted: function (el) {
+  //       el.focus()
+  //     }
+  //   }
+  // },
+  mounted () {
+    this.$refs.loginFormPwdRef.focus()
   }
 }
 </script>
