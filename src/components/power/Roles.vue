@@ -13,6 +13,7 @@
       </el-row>
       <!-- 非首行，角色列表表格区域 -->
       <el-table
+        row-key="id"
         :data="rolesList"
         border
         style="width: 100%">
