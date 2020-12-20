@@ -3,19 +3,21 @@
     <!-- 头部区域 -->
     <el-header>
       <div>
-        <img src="../assets/heima.png" alt="" />
-        <span>电商管理平台首页</span>
+        <img src="../assets/非社交型头像.png" alt="" />
+        <span>电商后台管理系统</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
     <el-container>
       <!-- 左侧菜单栏区域 -->
       <el-aside :width="isCollapse ? 60 + 'px': 200 + 'px'">
-        <div class="asideCollapse" @click="ifCollapse">|||</div>
+        <div class="asideCollapse" @click="ifCollapse">
+          <i :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
+        </div>
         <el-menu
           :default-active="'/' + active"
           class="el-menu-vertical-demo"
-          background-color="#333744"
+          background-color="#304156"
           text-color="#fff"
           active-text-color="#409eff"
           unique-opened
@@ -122,12 +124,18 @@ export default {
   // flex 布局，先两边贴边，再平分剩余空间
   justify-content: space-between;
   padding-left: 0;
-  background-color: #373d41;
+  background-color: #304156;
   // 使右侧按钮高度不拉满
   align-items: center;
   div {
     display: flex;
     align-items: center;
+    padding-left: 10px;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+    }
     span {
       margin-left: 10px;
       color: #fff;
@@ -138,7 +146,7 @@ export default {
   }
 }
 .el-aside {
-  background-color: #333744;
+  background-color: #304156;
   .asideCollapse {
     height: 30px;
     color: #fff;
